@@ -1,0 +1,212 @@
+ !DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bridal CV</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f3e9;
+            color: #4d4d4d;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .form-container {
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            border: 1px solid #dedede;
+        }
+
+        h2 {
+            text-align: center;
+            color: #bf6f6f;
+            font-family: 'Georgia', serif;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            color: #7a5757;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #c8c8c8;
+            font-size: 14px;
+        }
+
+        button {
+            background: #bf6f6f;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #8a4949;
+        }
+
+        #formattedCV {
+            display: none;
+            max-width: 750px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            border: 1px solid #dedede;
+        }
+
+        .cv-header {
+            text-align: center;
+            color: #7a4e4e;
+            font-family: 'Georgia', serif;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .cv-content p {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            color: #bf5e5e;
+            font-weight: bold;
+        }
+
+        .profile-pic {
+            display: block;
+            margin: 0 auto 15px;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #bf6f6f;
+        }
+
+        .back-button {
+            margin-top: 20px;
+            background: #7a5757;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="form-container">
+        <h2>Bridal CV Form</h2>
+        <form id="bridalForm">
+            <div class="form-group">
+                <label for="profilePic">Upload Profile Picture</label>
+                <input type="file" id="profilePic" accept="image/*" required>
+            </div>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" required>
+            </div>
+            <div class="form-group">
+                <label for="contact">Contact No</label>
+                <input type="text" id="contact" required>
+            </div>
+            <div class="form-group">
+                <label for="education">Educational Qualification</label>
+                <input type="text" id="education" required>
+            </div>
+            <div class="form-group">
+                <label for="occupation">Occupation</label>
+                <input type="text" id="occupation">
+            </div>
+            <div class="form-group">
+                <label for="height">Height</label>
+                <input type="text" id="height" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" id="address" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" rows="4" placeholder="Describe yourself..."></textarea>
+            </div>
+            <button type="button" onclick="generateCV()">Generate Bridal CV</button>
+        </form>
+    </div>
+
+    <div id="formattedCV" class="form-container">
+        <h2 class="cv-header">Bridal CV</h2>
+        <img id="cvProfilePic" class="profile-pic" alt="Profile Picture">
+        <div id="cvContent"></div>
+        <button class="back-button" onclick="goBack()">Back to Bridal Form</button>
+    </div>
+
+    <script>
+        function generateCV() {
+            console.log("Simulating database operation...");
+
+            const profilePic = document.getElementById('profilePic').files[0];
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+            const contact = document.getElementById('contact').value;
+            const education = document.getElementById('education').value;
+            const occupation = document.getElementById('occupation').value;
+            const height = document.getElementById('height').value;
+            const address = document.getElementById('address').value;
+            const description = document.getElementById('description').value;
+
+            const profilePicElement = document.getElementById('cvProfilePic');
+            profilePicElement.src = URL.createObjectURL(profilePic);
+
+            const cvContent = `
+        <p><span class="highlight">Name:</span> ${name}</p>
+        <p><span class="highlight">Age:</span> ${age}</p>
+        <p><span class="highlight">Contact:</span> ${contact}</p>
+        <p><span class="highlight">Education:</span> ${education}</p>
+        <p><span class="highlight">Occupation:</span> ${occupation}</p>
+        <p><span class="highlight">Height:</span> ${height}</p>
+        <p><span class="highlight">Address:</span> ${address}</p>
+        <p><span class="highlight">Description:</span> ${description}</p>
+    `;
+            document.getElementById('cvContent').innerHTML = cvContent;
+
+            document.getElementById('bridalForm').style.display = 'none';
+            document.getElementById('formattedCV').style.display = 'block';
+        }
+
+        function goBack() {
+            document.getElementById('formattedCV').style.display = 'none';
+            document.getElementById('bridalForm').style.display = 'block';
+        }
+    </script>
+
+</body>
+
+</html>

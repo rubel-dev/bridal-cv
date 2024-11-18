@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bridal Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Bridal BioData Form</h1>
+        <form id="bridalForm">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" required>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" required>
+
+            <label for="height">Height:</label>
+            <input type="text" id="height" placeholder="e.g., 5'5\"" required>
+
+            <label for=" hobbies">Hobbies:</label>
+            <input type="text" id="hobbies">
+
+            <label for="education">Education:</label>
+            <input type="text" id="education">
+
+            <label for="languages">Languages Known:</label>
+            <input type="text" id="languages">
+
+            <label for="occupation">Occupation:</label>
+            <input type="text" id="occupation">
+
+            <label for="photo">Upload Photo:</label>
+            <input type="file" id="photo" accept="image/*">
+
+            <button type="submit">Submit</button>
+        </form>
+        <div id="result" class="hidden">
+            <h2>Bridal BioData Preview</h2>
+            <p><strong>Name:</strong> <span id="displayName"></span></p>
+            <p><strong>Date of Birth:</strong> <span id="displayDob"></span></p>
+            <p><strong>Height:</strong> <span id="displayHeight"></span></p>
+            <p><strong>Hobbies:</strong> <span id="displayHobbies"></span></p>
+            <p><strong>Education:</strong> <span id="displayEducation"></span></p>
+            <p><strong>Languages:</strong> <span id="displayLanguages"></span></p>
+            <p><strong>Occupation:</strong> <span id="displayOccupation"></span></p>
+            <img id="displayPhoto" alt="Bridal Photo">
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
